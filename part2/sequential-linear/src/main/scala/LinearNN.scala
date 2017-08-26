@@ -1,20 +1,12 @@
-
 import Common._
-import LinearNNFunctions.transposeAndMultiply
-import Pack.packWeights
 import breeze.linalg.{DenseMatrix, DenseVector, sum}
-
-import scala.collection.mutable.ArrayBuffer
+import breeze.stats.distributions.Rand
 
 /**
   * Created by LD on 2017-05-17.
   * Modified based on code from Python: https://github.com/mnielsen/neural-networks-and-deep-learning
   */
 class LinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch_size: Int){
-
-  val filePrefix = "Linear-MNIST"
-
-  implicit var fileName = ""
 
   var biases: Seq[DenseVector[Double]] = _
 
@@ -23,27 +15,26 @@ class LinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch_si
   var layers: Int = 0
 
   /**
-    *
+    * Start the training
     */
   def start(): Unit = {
+    biases = sizes.drop(1).map(x => DenseVector.rand(x, rand = Rand.gaussian))
+    weights = sizes.drop(1).zipWithIndex.map(x => DenseMatrix.rand(x._1, sizes(x._2), rand = Rand.gaussian))
+    //Uncomment next three lines to read parameters from file instead of random initialize
     val hp = ParameterLoader.load(sizes)
     biases = hp._1
     weights = hp._2
-    /*biases = sizes.drop(1).map(x => DenseVector.rand(x, rand = Rand.gaussian))
-    weights = sizes.drop(1).zipWithIndex.map(x => DenseMatrix.rand(x._1, sizes(x._2), rand = Rand.gaussian))*/
+
     layers = sizes.length - 1
     val datasets = MnistLoader.load()
     val start = System.currentTimeMillis()
     val costs = initialCosts()
-
-    fileName = generateFileName(learning_rate, mini_batch_size, start, sizes, filePrefix)
-    log(s"$filePrefix:${sizes.mkString("-")}")
-    log(s"Batch Size: $mini_batch_size. Learning Rate: $learning_rate")
+    println(s"Linear Neural Network Structure:${sizes.mkString("-")}")
+    println(s"Batch Size: $mini_batch_size. Learning Rate: $learning_rate")
 
     SGD(datasets, costs, epoch, mini_batch_size, learning_rate, start, update_mini_batch, feedForward)
 
-    outputResults(datasets, costs, start)
-    packWeights(biases, weights, fileName)
+    println(s"Total Time: ${System.currentTimeMillis() - start}ms")
   }
 
   /**
@@ -69,13 +60,6 @@ class LinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch_si
     var nable_w = weights.map(x => DenseMatrix.zeros[Double](x.rows, x.cols))
     mini_batch.foreach(x => {
       val delta = backprop(x._1, x._2)
-//      val checkgrad = gradientCheck(x._1, x._2)
-//      val deltaFlat = unroll(delta._1, delta._2)
-//      val numgradFlat = unroll(checkgrad._1, checkgrad._2)
-//      val difft = breeze.linalg.norm(deltaFlat - numgradFlat)
-//      val diffb = breeze.linalg.norm(deltaFlat + numgradFlat)
-//      val diff = difft / diffb
-//      println(diff)
       nable_b = (nable_b, delta._1).zipped.map((nb, dnb) => nb+dnb)
       nable_w = (nable_w, delta._2).zipped.map((nw, dnw) => nw+dnw)
     })
@@ -97,9 +81,8 @@ class LinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch_si
     var activations: Seq[DenseVector[Double]] = Seq(activation)
     var zs: Seq[DenseVector[Double]] = Seq.empty
     (biases, weights).zipped.foreach((b, w) => {
-      val z = DenseVector((0 until w.rows).map(x => sum(w(x, ::).t *:* activation)).toArray) + b
+      val z = ((w * activation.toDenseMatrix.t) + b.toDenseMatrix.t).toDenseVector
       zs = zs :+ z
-      //val temp = (w * activation.toDenseMatrix.t) + b.toDenseMatrix.t
       activation = sigmoid(z)
       activations = activations :+ activation
     })
@@ -120,63 +103,6 @@ class LinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch_si
     (nable_b, nable_w)
   }
 
-  private def gradientCheck(x: DenseVector[Double], y: DenseVector[Double]):
-  (Seq[DenseVector[Double]], Seq[DenseMatrix[Double]]) = {
-    var nable_b = biases.map(x => DenseVector.zeros[Double](x.length))
-    var nable_w = weights.map(x => DenseMatrix.zeros[Double](x.rows, x.cols))
-
-    var ebl = 0.0001f
-
-    for (i <- biases.indices) {
-      biases(i).foreachPair((ind, v) => {
-        biases(i)(ind) = v - ebl
-        val out1 = feedForwardChecking(x, y)
-        biases(i)(ind) = v + ebl
-        val out2 = feedForwardChecking(x, y)
-        nable_b(i)(ind) = (out2 - out1) / (2 * ebl)
-        biases(i)(ind) = v
-      })
-    }
-
-    for (i <- weights.indices) {
-      weights(i).foreachPair((ind, v) => {
-        weights(i)(ind) = v - ebl
-        val out1 = feedForwardChecking(x, y)
-        weights(i)(ind) = v + ebl
-        val out2 = feedForwardChecking(x, y)
-        nable_w(i)(ind) = (out2 - out1) / (2 * ebl)
-        weights(i)(ind) = v
-      })
-    }
-
-    (nable_b, nable_w)
-  }
-
-  /**
-    *
-    * @param input
-    * @return
-    */
-  private def feedForwardChecking(input: DenseVector[Double], y: DenseVector[Double]): Double = {
-    var output :DenseVector[Double] = input
-    (biases, weights).zipped.foreach((b, w) => output = sigmoid(DenseVector((0 until w.rows).map(x => sum(w(x, ::).t *:* output)).toArray) + b))
-    assert(output.length == sizes(layers))
-    sum((output - y).map(x => pow(math.abs(x), 2.0f))) / 2.0f
-  }
-
-  private def unroll(bias: Seq[DenseVector[Double]], weight: Seq[DenseMatrix[Double]]): DenseVector[Double] = {
-    var result: ArrayBuffer[Double] = ArrayBuffer()
-    (bias, weight).zipped.foreach((b, w) => {
-      result ++= b.toArray
-      result ++= w.toArray
-    })
-    DenseVector(result.toArray)
-  }
-
-}
-
-object LinearNNFunctions {
-
   /**
     *
     * @param z
@@ -187,3 +113,4 @@ object LinearNNFunctions {
     DenseMatrix.tabulate(t.length, z.length){case (i, j) => t(i) * z(j)}
   }
 }
+
