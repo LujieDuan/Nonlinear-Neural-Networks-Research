@@ -126,7 +126,7 @@ object MnistLoader {
     * Load train/validation/testSet sets, with default rate of train:validation = 90:10
     * @return (train, validation, testSet)
     */
-  def load(): DataSet = loadWithRate(0.9)
+  def load(): DataSet = loadWithRate(0.83334)
 
   /**
     * Load train/validation/testSet sets, with default rate of train:validation = rate

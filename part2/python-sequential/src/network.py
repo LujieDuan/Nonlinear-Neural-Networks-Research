@@ -7,6 +7,9 @@ algorithm for a feedforward neural network.  Gradients are calculated
 using backpropagation.  Note that I have focused on making the code
 simple, easily readable, and easily modifiable.  It is not optimized,
 and omits many desirable features.
+
+Copyright to Michael Nielsen
+Modified By Lujie Duan 2017-08-28
 """
 
 #### Libraries
@@ -36,13 +39,19 @@ class Network(object):
         ever used in computing the outputs from later layers."""
         self.num_layers = len(sizes)
         self.sizes = sizes
+
+        # Exchange the following two parts to random initializa parameters
+        ##########
         # self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
         # self.weights = [np.random.randn(y, x)
         #                 for x, y in zip(sizes[:-1], sizes[1:])]
+        # Include this line if need to save the parameters
         # pickle_param(self.biases, self.weights)
-
+        ###
         self.biases, self.weights = load_param()
-        print ["%.55f" % i for i in self.unroll(self.biases, self.weights)]
+        # Include this line if need to print the parameters for Scala app to use
+        # print ["%.55f" % i for i in self.unroll(self.biases, self.weights)]
+        #########
 
     def feedforward(self, a):
         """Return the output of the network if ``a`` is input."""
@@ -50,8 +59,8 @@ class Network(object):
             a = sigmoid(np.dot(w, a)+b)
         return a
 
-    def SGD(self, training_data, epochs, mini_batch_size, eta,
-            test_data=None):
+    def SGD(self, training_data_vectorized, training_data, epochs, mini_batch_size, eta,
+            validation_data, test_data):
         """Train the neural network using mini-batch stochastic
         gradient descent.  The ``training_data`` is a list of tuples
         ``(x, y)`` representing the training inputs and the desired
@@ -60,22 +69,30 @@ class Network(object):
         network will be evaluated against the test data after each
         epoch, and partial progress printed out.  This is useful for
         tracking progress, but slows things down substantially."""
-        if test_data: n_test = len(test_data)
-        n = len(training_data)
+        n_validation = len(validation_data)
+        n_test = len(test_data)
+        n = len(training_data_vectorized)
         start_time = time.time()
         for j in xrange(epochs):
-            # random.shuffle(training_data)
+            # Include this line if want to shuffle the samples before each epoch
+            # random.shuffle(training_data_vectorized)
             mini_batches = [
-                training_data[k:k+mini_batch_size]
+                training_data_vectorized[k:k+mini_batch_size]
                 for k in xrange(0, n, mini_batch_size)]
             for mini_batch in mini_batches:
                 self.update_mini_batch(mini_batch, eta)
-            if test_data:
-                print "Epoch {0}: {1} / {2}".format(
-                    j, self.evaluate(test_data), n_test)
-            else:
-                print "Epoch {0} complete".format(j)
-            # print (time.time() - start_time)
+
+            training_eva = self.evaluate(training_data)
+            validation_eva = self.evaluate(validation_data)
+            test_eva = self.evaluate(test_data)
+
+            print "Epoch {0}: Training: {1} / {2}, {3}%".format(
+                j, training_eva, n, 100.0*training_eva/n)
+            print "           Validation: {1} / {2}, {3}%".format(
+                j, validation_eva, n_validation, 100.0*validation_eva/n_validation)
+            print "           Test: {1} / {2}, {3}%".format(
+                j, test_eva, n_test, 100.0*test_eva/n_test)
+        print "Total Time: {0}s ".format((time.time() - start_time))
 
     def update_mini_batch(self, mini_batch, eta):
         """Update the network's weights and biases by applying
@@ -86,7 +103,7 @@ class Network(object):
         nabla_w = [np.zeros(w.shape) for w in self.weights]
         for x, y in mini_batch:
             delta_nabla_b, delta_nabla_w = self.backprop(x, y)
-            # numb, numw = self.greadient_checking(x, y)
+            # numb, numw = self.gradient_checking(x, y)
             # gradflat = np.array(self.unroll(delta_nabla_b, delta_nabla_w))
             # numflat = np.array(self.unroll(numb, numw))
             # diff = np.linalg.norm(numflat - gradflat) / np.linalg.norm(numflat + gradflat)
@@ -154,7 +171,7 @@ class Network(object):
             a = sigmoid(np.dot(w, a)+b)
         return sum(np.power(a - y, 2)) / 2.0
 
-    def greadient_checking(self, x, y):
+    def gradient_checking(self, x, y):
         nabla_b = [np.zeros(b.shape) for b in self.biases]
         nabla_w = [np.zeros(w.shape) for w in self.weights]
 

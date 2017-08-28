@@ -34,7 +34,7 @@ class LinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch_si
 
     SGD(datasets, costs, epoch, mini_batch_size, learning_rate, start, update_mini_batch, feedForward)
 
-    println(s"Total Time: ${System.currentTimeMillis() - start}ms")
+    println(s"Total Time: ${(System.currentTimeMillis() - start) / 1000.0}s")
   }
 
   /**

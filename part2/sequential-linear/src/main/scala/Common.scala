@@ -127,9 +127,9 @@ object Common {
     costs.Validation += validationResults._2
     costs.Test += testResults._2
 
-    println(s"Epoch $epochCount: Train Set:     ${trainResults._1.toDouble / dataset.Train.length}")
-    println(s"         Validation Set:     ${validationResults._1.toDouble / dataset.Validation.length}")
-    println(s"         Test Set:     ${testResults._1.toDouble / dataset.Test.length}")
+    println(s"Epoch $epochCount: Train Set: ${trainResults._1} / ${dataset.Train.length} ${ 100.0 * trainResults._1 / dataset.Train.length}%")
+    println(s"         Validation Set: ${validationResults._1} / ${dataset.Validation.length} ${ 100.0 * validationResults._1 / dataset.Validation.length}%")
+    println(s"         Test Set: ${testResults._1} / ${dataset.Test.length} ${ 100.0 * testResults._1 / dataset.Test.length}%")
   }
 
   /**
