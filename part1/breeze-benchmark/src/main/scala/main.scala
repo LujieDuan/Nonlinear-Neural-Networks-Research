@@ -13,7 +13,11 @@ object main {
 //
 //    TestPow
 
-    benchBreeze
+    benchMatrixMultiplication
+
+    benchMatrixApply
+
+    benchMatrixDot
   }
 
 
@@ -56,7 +60,7 @@ object main {
     }
   }
 
-  private def benchBreeze = {
+  private def benchMatrixMultiplication = {
     println("Testing matrix multiplication:")
 
     val time = System.currentTimeMillis()
@@ -64,9 +68,30 @@ object main {
     for (i <- 0 until 1000) {
       val m = matrix * matrix
     }
-    println(s"Total: ${(System.currentTimeMillis() - time) / 1000.0}")
+    println(s"Total: ${(System.currentTimeMillis() - time) / 1000.0}s")
   }
 
+  private def benchMatrixApply = {
+    println("Testing matrix apply:")
+
+    val time = System.currentTimeMillis()
+    val matrix = DenseMatrix.rand(1000, 1000)
+    for (i <- 0 until 1000) {
+      val m = breeze.numerics.exp(matrix)
+    }
+    println(s"Total: ${(System.currentTimeMillis() - time) / 1000.0}s")
+  }
+
+  private def benchMatrixDot = {
+    println("Testing matrix dot multiplication:")
+
+    val time = System.currentTimeMillis()
+    val matrix = DenseMatrix.rand(1000, 1000)
+    for (i <- 0 until 1000) {
+      val m = matrix *:* matrix
+    }
+    println(s"Total: ${(System.currentTimeMillis() - time) / 1000.0}s")
+  }
 }
 
 object Common {

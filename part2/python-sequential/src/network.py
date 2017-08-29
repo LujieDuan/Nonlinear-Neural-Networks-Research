@@ -165,45 +165,45 @@ class Network(object):
         return (output_activations-y)
 
 
-    def feedforwardchecking(self, a, y, bias, weights):
-        """Return the output of the network if ``a`` is input."""
-        for b, w in zip(bias, weights):
-            a = sigmoid(np.dot(w, a)+b)
-        return sum(np.power(a - y, 2)) / 2.0
-
-    def gradient_checking(self, x, y):
-        nabla_b = [np.zeros(b.shape) for b in self.biases]
-        nabla_w = [np.zeros(w.shape) for w in self.weights]
-
-        b0 = deepcopy(self.biases)
-        b1 = deepcopy(self.biases)
-
-        ebl = 0.0001
-
-        for i in xrange(0, len(self.biases)):
-            for j in xrange(0, len(self.biases[i])):
-                b0[i][j][0] = b0[i][j][0] - ebl
-                b1[i][j][0] = b1[i][j][0] + ebl
-                out0 = self.feedforwardchecking(x, y, b0, self.weights)
-                out1 = self.feedforwardchecking(x, y, b1, self.weights)
-                nabla_b[i][j][0] = (out1 - out0) / (2*ebl)
-                b0[i][j][0] = self.biases[i][j][0]
-                b1[i][j][0] = self.biases[i][j][0]
-
-        w0 = deepcopy(self.weights)
-        w1 = deepcopy(self.weights)
-
-        for i in xrange(0, len(self.weights)):
-            for j in xrange(0, len(self.weights[i])):
-                for k in xrange(0, len(self.weights[i][j])):
-                    w0[i][j][k] = w0[i][j][k] - ebl
-                    w1[i][j][k] = w1[i][j][k] + ebl
-                    out0 = self.feedforwardchecking(x, y, self.biases, w0)
-                    out1 = self.feedforwardchecking(x, y, self.biases, w1)
-                    nabla_w[i][j][k] = (out1 - out0) / (2 * ebl)
-                    w0[i][j][k] = self.weights[i][j][k]
-                    w1[i][j][k] = self.weights[i][j][k]
-        return (nabla_b, nabla_w)
+    # def feedforward_checking(self, a, y, bias, weights):
+    #     """Return the output of the network if ``a`` is input."""
+    #     for b, w in zip(bias, weights):
+    #         a = sigmoid(np.dot(w, a)+b)
+    #     return sum(np.power(a - y, 2)) / 2.0
+    #
+    # def gradient_checking(self, x, y):
+    #     nabla_b = [np.zeros(b.shape) for b in self.biases]
+    #     nabla_w = [np.zeros(w.shape) for w in self.weights]
+    #
+    #     b0 = deepcopy(self.biases)
+    #     b1 = deepcopy(self.biases)
+    #
+    #     ebl = 0.0001
+    #
+    #     for i in xrange(0, len(self.biases)):
+    #         for j in xrange(0, len(self.biases[i])):
+    #             b0[i][j][0] = b0[i][j][0] - ebl
+    #             b1[i][j][0] = b1[i][j][0] + ebl
+    #             out0 = self.feedforwardchecking(x, y, b0, self.weights)
+    #             out1 = self.feedforwardchecking(x, y, b1, self.weights)
+    #             nabla_b[i][j][0] = (out1 - out0) / (2*ebl)
+    #             b0[i][j][0] = self.biases[i][j][0]
+    #             b1[i][j][0] = self.biases[i][j][0]
+    #
+    #     w0 = deepcopy(self.weights)
+    #     w1 = deepcopy(self.weights)
+    #
+    #     for i in xrange(0, len(self.weights)):
+    #         for j in xrange(0, len(self.weights[i])):
+    #             for k in xrange(0, len(self.weights[i][j])):
+    #                 w0[i][j][k] = w0[i][j][k] - ebl
+    #                 w1[i][j][k] = w1[i][j][k] + ebl
+    #                 out0 = self.feedforwardchecking(x, y, self.biases, w0)
+    #                 out1 = self.feedforwardchecking(x, y, self.biases, w1)
+    #                 nabla_w[i][j][k] = (out1 - out0) / (2 * ebl)
+    #                 w0[i][j][k] = self.weights[i][j][k]
+    #                 w1[i][j][k] = self.weights[i][j][k]
+    #     return (nabla_b, nabla_w)
 
     def unroll(self, bs, ws):
         flat = []
