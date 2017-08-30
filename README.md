@@ -23,7 +23,16 @@ A Scala/Breeze implementation of neural networks with nonlinear synapses, traine
 Using gradient checking to check the correctness of the neural networks with nonlinear sysnapses. 
 
 
-##	part 5:
+##	Part 5:
+
+A Scala/Breeze implementation of a variation of neural networks with nonliear sysapses - each transformation function (synapse) now only keep one exponent term. We call this as neural networks with single term nonlinear synapse. 
 
 
+## Part 6:
 
+Test the two kinds of nonlinear networks on XOR classification - a classical problem, that for ordinary neural networks with sigmoid activation function, they need minimum 5 noods in 3 layers, including the input layer. 
+
+
+## Part 7: 
+
+Test 
