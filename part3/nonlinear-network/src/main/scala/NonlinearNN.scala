@@ -2,18 +2,14 @@ import Common._
 import breeze.linalg.{DenseMatrix, DenseVector, sum}
 import breeze.stats.distributions.Rand
 import NonlinearFunctions._
-import Pack.packWeightsExp
 
 import scala.collection.mutable.ArrayBuffer
 
 /**
   * Created by LD on 2017-05-19.
   */
-class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch_size: Int, ratio: Double) {
+class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch_size: Int) {
 
-  val filePrefix = "Nonlinear-MNIST"
-
-  implicit var fileName = ""
   var biases: Seq[DenseVector[Double]] = _
 
   var weights : Seq[DenseMatrix[Seq[(Double, Double)]]] = _
@@ -21,29 +17,29 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
   var layers: Int = 0
 
   def start(): Unit = {
-//    val hp = ParameterLoader.loadNonlinear(sizes)
+
+    // Include the following three lines and comment out the next two to read initial parameters from saved file
+//    val hp = ParameterLoader.load(sizes)
 //    biases = hp._1
 //    weights = hp._2
     biases = sizes.drop(1).map(x => DenseVector.rand(x, rand = Rand.gaussian))
     weights = sizes.drop(1).zipWithIndex.map(x => DenseMatrix.rand(x._1, sizes(x._2), rand = Rand.gaussian)).map(x => x.map(y => Seq[(Double, Double)]((1.0, y))))
+
+      // Include the following two lines if want to save the parameters to repeat experiment
 //    val temp = unrollWithoutExp(biases, weights)
 //    println(temp)
+
     layers = sizes.length - 1
-    val datasets = LeafClassificationLoader.Load("cache/leafClassification/", 0.75, 0.125)
+    val datasets = MnistLoader.load()
     val start = System.currentTimeMillis()
     val costs = initialCosts()
 
-    fileName = generateFileName(learning_rate, mini_batch_size, start, sizes, filePrefix + "-l" + ratio)
+    println(s"Nonlinear Neural Network Structure:${sizes.mkString("-")}")
+    println(s"Batch Size: $mini_batch_size. Learning Rate: $learning_rate")
 
-    log(s"$filePrefix-l$ratio:${sizes.mkString("-")}")
-    log(s"Batch Size: $mini_batch_size. Learning Rate: $learning_rate")
+    SGD(datasets, costs, epoch, mini_batch_size, learning_rate, start, updateMiniBatch, feedForward)
 
-    SGD(datasets, costs, epoch, mini_batch_size, learning_rate, start, update_mini_batch, feedForward)
-
-    outputResults(datasets, costs, start)
-
-    packWeightsExp(biases, weights, fileName)
-
+    println(s"Total Time: ${(System.currentTimeMillis() - start) / 1000.0}s")
   }
 
   /**
@@ -63,24 +59,16 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
     * @param mini_batch
     * @param eta
     */
-  private def update_mini_batch(mini_batch: Seq[(DenseVector[Double], DenseVector[Double])], eta: Double) = {
+  private def updateMiniBatch(mini_batch: Seq[(DenseVector[Double], DenseVector[Double])], eta: Double) = {
     var nable_b = biases.map(x => DenseVector.zeros[Double](x.length))
     var nable_w = cloneWeights(weights)
     mini_batch.foreach(x => {
       val delta = backprop(x._1, x._2)
-/*      val checkgrad = gradientCheck(x._1, x._2)
-      val deltaFlat = unroll(delta._1, delta._2)
-      val numgradFlat = unroll(checkgrad._1, checkgrad._2)
-      val difft = breeze.linalg.norm(deltaFlat - numgradFlat)
-      val diffb = breeze.linalg.norm(deltaFlat + numgradFlat)
-      val diff = difft / diffb
-      println(diff)*/
       nable_b = (nable_b, delta._1).zipped.map((nb, dnb) => nb+dnb)
       nable_w = (nable_w, delta._2).zipped.map((nw, dnw) => addDelta(nw, dnw))
     })
     biases = (biases, nable_b).zipped.map((b, nb) => b - nb.map(x => x * (eta/mini_batch.length)))
-    weights = (weights, nable_w).zipped.map((w, nw) => minusDelta(w, nw.map(x => x.map(y => (y._1 * ratio * (eta/mini_batch.length), y._2 * (eta/mini_batch.length))))))
-    //println(s"$batch")
+    weights = (weights, nable_w).zipped.map((w, nw) => minusDelta(w, nw.map(x => x.map(y => (y._1 * (eta/mini_batch.length), y._2 * (eta/mini_batch.length))))))
     weights = addExponential(weights)
   }
 
@@ -108,7 +96,7 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
     nable_b = nable_b.updated(layers - 1, delta)
     nable_w = nable_w.updated(layers - 1, transposeAndMultiply(activations(layers - 1), delta, weights(layers - 1)))
 
-    //
+    //lower layers
     for(l <- 2 to layers) {
       val z = zs(layers - l)
       val sp = sigmoid_prime(z)
@@ -120,76 +108,12 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
     (nable_b, nable_w)
   }
 
-  private def gradientCheck(x: DenseVector[Double], y: DenseVector[Double]):
-  (Seq[DenseVector[Double]], Seq[DenseMatrix[Seq[(Double, Double)]]]) = {
-    var nable_b = biases.map(x => DenseVector.zeros[Double](x.length))
-    var nable_w = cloneWeights(weights)
-
-    var ebl = 0.0001f
-
-    for (i <- biases.indices) {
-      biases(i).foreachPair((ind, v) => {
-        biases(i)(ind) = v - ebl
-        val out1 = feedForwardChecking(x, y)
-        biases(i)(ind) = v + ebl
-        val out2 = feedForwardChecking(x, y)
-        nable_b(i)(ind) = (out2 - out1) / (2 * ebl)
-        biases(i)(ind) = v
-      })
-    }
-
-    for (i <- weights.indices) {
-      weights(i).foreachPair((ind, v) => {
-        v.zipWithIndex.foreach(inner => {
-          if (inner._2 == v.length - 1) {
-            weights(i)(ind) = (v.take(inner._2) :+ (inner._1._1 - ebl, inner._1._2)) ++ v.takeRight(v.length - inner._2 - 1)
-            val out1 = feedForwardChecking(x, y)
-            weights(i)(ind) = (v.take(inner._2) :+ (inner._1._1 + ebl, inner._1._2)) ++ v.takeRight(v.length - inner._2 - 1)
-            val out2 = feedForwardChecking(x, y)
-            val grad: Double = (out2 - out1) / (2 * ebl)
-            val original = nable_w(i)(ind)
-            nable_w(i)(ind) = (original.take(inner._2) :+ (grad, original(inner._2)._2)) ++ original.takeRight(v.length - inner._2 - 1)
-            weights(i)(ind) = v
-          }
-          weights(i)(ind) = (v.take(inner._2) :+ (inner._1._1, inner._1._2 - ebl)) ++ v.takeRight(v.length - inner._2 - 1)
-          val out1 = feedForwardChecking(x, y)
-          weights(i)(ind) = (v.take(inner._2) :+ (inner._1._1, inner._1._2 + ebl)) ++ v.takeRight(v.length - inner._2 - 1)
-          val out2 = feedForwardChecking(x, y)
-          val grad: Double = (out2 - out1) / (2 * ebl)
-          val original = nable_w(i)(ind)
-          nable_w(i)(ind) = (original.take(inner._2) :+ (original(inner._2)._1, grad)) ++ original.takeRight(v.length - inner._2 - 1)
-          weights(i)(ind) = v
-        })
-      })
-    }
-
-    (nable_b, nable_w)
-  }
-
   /**
-    *
-    * @param input
+    * Used for saving initial parameters
+    * @param bias
+    * @param weight
     * @return
     */
-  private def feedForwardChecking(input: DenseVector[Double], y: DenseVector[Double]): Double = {
-    var output :DenseVector[Double] = input
-    (biases, weights).zipped.foreach((b, w) => output = sigmoid(DenseVector((0 until w.rows).map(x => sum(layerMultiply(w(x, ::).t, output))).toArray) + b))
-    assert(output.length == sizes(layers))
-    sum((output - y).map(x => pow(math.abs(x), 2.0f))) / 2.0f
-  }
-
-  private def unroll(bias: Seq[DenseVector[Double]], weight: Seq[DenseMatrix[Seq[(Double, Double)]]]): DenseVector[Double] = {
-    var result: ArrayBuffer[Double] = ArrayBuffer()
-    (bias, weight).zipped.foreach((b, w) => {
-      result ++= b.toArray
-      result ++= w.toArray.foldLeft(ArrayBuffer[Double]())((b, a) => b ++= a.toArray.foldLeft(ArrayBuffer[Double]())((c, d) => {
-        c += d._1
-        c += d._2
-      }))
-    })
-    DenseVector(result.toArray)
-  }
-
   private def unrollWithoutExp(bias: Seq[DenseVector[Double]], weight: Seq[DenseMatrix[Seq[(Double, Double)]]]): DenseVector[Double] = {
     var result: ArrayBuffer[Double] = ArrayBuffer()
     (bias, weight).zipped.foreach((b, w) => {
@@ -289,13 +213,5 @@ object NonlinearFunctions {
         updated :+ (original_exp, 0.0)
       } else s
     }))
-  }
-
-  /**
-    *
-    * @param z
-    */
-  private def printWeights(z: Seq[DenseMatrix[Seq[(Double, Double)]]])(implicit fileName: String) = {
-    z.zipWithIndex.foreach(ma => ma._1.foreachValue(se => log(s"Layer: ${ma._2 + 1} ${se.map(t => t._2.toString + "x^"+ t._1.toString + " ").mkString}")))
   }
 }

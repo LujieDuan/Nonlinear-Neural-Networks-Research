@@ -32,7 +32,7 @@ class LinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch_si
     println(s"Linear Neural Network Structure:${sizes.mkString("-")}")
     println(s"Batch Size: $mini_batch_size. Learning Rate: $learning_rate")
 
-    SGD(datasets, costs, epoch, mini_batch_size, learning_rate, start, update_mini_batch, feedForward)
+    SGD(datasets, costs, epoch, mini_batch_size, learning_rate, start, updateMiniBatch, feedForward)
 
     println(s"Total Time: ${(System.currentTimeMillis() - start) / 1000.0}s")
   }
@@ -55,7 +55,7 @@ class LinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch_si
     * @param mini_batch
     * @param eta
     */
-  private def update_mini_batch(mini_batch: Seq[(DenseVector[Double], DenseVector[Double])], eta: Double) = {
+  private def updateMiniBatch(mini_batch: Seq[(DenseVector[Double], DenseVector[Double])], eta: Double) = {
     var nable_b = biases.map(x => DenseVector.zeros[Double](x.length))
     var nable_w = weights.map(x => DenseMatrix.zeros[Double](x.rows, x.cols))
     mini_batch.foreach(x => {
