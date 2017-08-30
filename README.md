@@ -17,3 +17,13 @@ A Python/Numpy implementation of ordinary linear neural networks, and a correspo
 
 A Scala/Breeze implementation of neural networks with nonlinear synapses, trained on MNIST handwritten digit database. 
 
+
+##	Part 4:
+
+Using gradient checking to check the correctness of the neural networks with nonlinear sysnapses. 
+
+
+##	part 5:
+
+
+
