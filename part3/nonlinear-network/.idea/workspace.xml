@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="514711de-70b7-4733-bd7d-0fc3d9a12be7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/data/mnistdata/t10k-images-idx3-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/data/mnistdata/t10k-labels-idx1-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/data/mnistdata/train-images-idx3-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/data/mnistdata/train-labels-idx1-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/.idea/libraries/SBT__org_scala_lang_scala_library_2_12_3_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/.idea/modules/gradient-check-build.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/.idea/modules/gradient-check.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/.idea/sbt.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/.idea/scala_compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/input/hparam784-30-10.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/src/main/scala/Common.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/src/main/scala/Main.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/src/main/scala/MnistLoader.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/src/main/scala/NonlinearNN.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part4/gradient-check/src/main/scala/ParameterLoader.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../README.md" afterPath="$PROJECT_DIR$/../../README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part4/gradient-check/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part4/gradient-check/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part4/gradient-check/src/main/scala/NonlinearNN.scala" afterPath="$PROJECT_DIR$/../../part4/gradient-check/src/main/scala/NonlinearNN.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -847,15 +827,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1503988711583</updated>
-      <workItem from="1503988712828" duration="7030000" />
+      <workItem from="1503988712828" duration="8206000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7030000" />
+    <option name="totallyTimeSpent" value="8206000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-851" width="1440" height="808" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

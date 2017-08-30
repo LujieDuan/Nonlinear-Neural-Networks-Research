@@ -64,6 +64,16 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
     var nable_w = cloneWeights(weights)
     mini_batch.foreach(x => {
       val delta = backprop(x._1, x._2)
+      /**** Gradient Checking ****/
+      val checkgrad = gradientCheck(x._1, x._2)
+      val deltaFlat = unroll(delta._1, delta._2)
+      val numgradFlat = unroll(checkgrad._1, checkgrad._2)
+      val difft = breeze.linalg.norm(deltaFlat - numgradFlat)
+      val diffb = breeze.linalg.norm(deltaFlat + numgradFlat)
+      val diff = difft / diffb
+      println(s"The difference for gradient checking: $diff")
+      /**** ****/
+
       nable_b = (nable_b, delta._1).zipped.map((nb, dnb) => nb+dnb)
       nable_w = (nable_w, delta._2).zipped.map((nw, dnw) => addDelta(nw, dnw))
     })
@@ -106,6 +116,88 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
       nable_w = nable_w.updated(layers - l, transposeAndMultiply(activations(layers - l), delta, weights(layers - l)))
     }
     (nable_b, nable_w)
+  }
+
+  /**
+    * Do gradient check on both the coefficients and exponents
+    * @param x
+    * @param y
+    * @return the gradients calculated from approximation
+    */
+  private def gradientCheck(x: DenseVector[Double], y: DenseVector[Double]):
+  (Seq[DenseVector[Double]], Seq[DenseMatrix[Seq[(Double, Double)]]]) = {
+    var nable_b = biases.map(x => DenseVector.zeros[Double](x.length))
+    var nable_w = cloneWeights(weights)
+
+    var ebl = 0.0001f
+
+    for (i <- biases.indices) {
+      biases(i).foreachPair((ind, v) => {
+        biases(i)(ind) = v - ebl
+        val out1 = feedForwardChecking(x, y)
+        biases(i)(ind) = v + ebl
+        val out2 = feedForwardChecking(x, y)
+        nable_b(i)(ind) = (out2 - out1) / (2 * ebl)
+        biases(i)(ind) = v
+      })
+    }
+
+    for (i <- weights.indices) {
+      weights(i).foreachPair((ind, v) => {
+        v.zipWithIndex.foreach(inner => {
+          if (inner._2 == v.length - 1) {
+            weights(i)(ind) = (v.take(inner._2) :+ (inner._1._1 - ebl, inner._1._2)) ++ v.takeRight(v.length - inner._2 - 1)
+            val out1 = feedForwardChecking(x, y)
+            weights(i)(ind) = (v.take(inner._2) :+ (inner._1._1 + ebl, inner._1._2)) ++ v.takeRight(v.length - inner._2 - 1)
+            val out2 = feedForwardChecking(x, y)
+            val grad: Double = (out2 - out1) / (2 * ebl)
+            val original = nable_w(i)(ind)
+            nable_w(i)(ind) = (original.take(inner._2) :+ (grad, original(inner._2)._2)) ++ original.takeRight(v.length - inner._2 - 1)
+            weights(i)(ind) = v
+          }
+          weights(i)(ind) = (v.take(inner._2) :+ (inner._1._1, inner._1._2 - ebl)) ++ v.takeRight(v.length - inner._2 - 1)
+          val out1 = feedForwardChecking(x, y)
+          weights(i)(ind) = (v.take(inner._2) :+ (inner._1._1, inner._1._2 + ebl)) ++ v.takeRight(v.length - inner._2 - 1)
+          val out2 = feedForwardChecking(x, y)
+          val grad: Double = (out2 - out1) / (2 * ebl)
+          val original = nable_w(i)(ind)
+          nable_w(i)(ind) = (original.take(inner._2) :+ (original(inner._2)._1, grad)) ++ original.takeRight(v.length - inner._2 - 1)
+          weights(i)(ind) = v
+        })
+      })
+    }
+
+    (nable_b, nable_w)
+  }
+
+  /**
+    * The feed-forward algorithm used by gradient checking
+    * @param input
+    * @return
+    */
+  private def feedForwardChecking(input: DenseVector[Double], y: DenseVector[Double]): Double = {
+    var output :DenseVector[Double] = input
+    (biases, weights).zipped.foreach((b, w) => output = sigmoid(DenseVector((0 until w.rows).map(x => sum(layerMultiply(w(x, ::).t, output))).toArray) + b))
+    assert(output.length == sizes(layers))
+    sum((output - y).map(x => pow(math.abs(x), 2.0f))) / 2.0f
+  }
+
+  /**
+    * Unroll the matrices to a single vector; used to compare the gradients
+    * @param bias
+    * @param weight
+    * @return
+    */
+  private def unroll(bias: Seq[DenseVector[Double]], weight: Seq[DenseMatrix[Seq[(Double, Double)]]]): DenseVector[Double] = {
+    var result: ArrayBuffer[Double] = ArrayBuffer()
+    (bias, weight).zipped.foreach((b, w) => {
+      result ++= b.toArray
+      result ++= w.toArray.foldLeft(ArrayBuffer[Double]())((b, a) => b ++= a.toArray.foldLeft(ArrayBuffer[Double]())((c, d) => {
+        c += d._1
+        c += d._2
+      }))
+    })
+    DenseVector(result.toArray)
   }
 
   /**
