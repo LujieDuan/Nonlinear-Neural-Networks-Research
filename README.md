@@ -35,4 +35,6 @@ Test the two kinds of nonlinear networks on XOR classification - a classical pro
 
 ## Part 7: 
 
-Test 
+Test the ordinary neural networks and the two nonlinear kinds on IPPN arabidopsis leaf counting problem.
+
+
