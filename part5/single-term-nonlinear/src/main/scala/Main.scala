@@ -8,7 +8,7 @@ object Main {
     val EPOCH = 30
     val MINI_BATCH_SIZE = 100
     val layer_structures = args.map(_.toInt)
-    new NonlinearNN(LEARNING_RATE, layer_structures, EPOCH, MINI_BATCH_SIZE).start()
+    new SingleTermNN(LEARNING_RATE, layer_structures, EPOCH, MINI_BATCH_SIZE).start()
   }
 
 }

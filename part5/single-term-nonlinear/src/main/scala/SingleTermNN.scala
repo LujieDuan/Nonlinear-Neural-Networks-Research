@@ -1,14 +1,11 @@
 import breeze.linalg.{DenseMatrix, DenseVector, sum}
 import breeze.stats.distributions.Rand
+import Common._
 
 /**
   * Created by LD on 2017-06-13.
   */
 class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch_size: Int){
-
-  val filePrefix = "Single-Term-MNIST"
-
-  implicit var fileName = ""
 
   var biases: Seq[DenseVector[Double]] = _
 
@@ -27,15 +24,12 @@ class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batc
     val start = System.currentTimeMillis()
     val costs = initialCosts()
 
-    fileName = generateFileName(learning_rate, mini_batch_size, start, sizes, filePrefix)
-    log(s"$filePrefix:${sizes.mkString("-")}")
-    log(s"Batch Size: $mini_batch_size. Learning Rate: $learning_rate")
+    println(s"Single Term Nonlinear Neural Network:${sizes.mkString("-")}")
+    println(s"Batch Size: $mini_batch_size. Learning Rate: $learning_rate")
 
-    SGD(datasets, costs, epoch, mini_batch_size, learning_rate, start, update_mini_batch, feedForward)
+    SGD(datasets, costs, epoch, mini_batch_size, learning_rate, start, updateMiniBatch, feedForward)
 
-    outputResults(datasets, costs, start)
-
-    packWeights(biases, weights, exponents, fileName)
+    println(s"Total Time: ${(System.currentTimeMillis() - start) / 1000.0}s")
   }
 
   /**
@@ -45,7 +39,7 @@ class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batc
     */
   def feedForward(input: DenseVector[Double]): DenseVector[Double] = {
     var output: DenseVector[Double] = input
-    (biases, weights, exponents).zipped.foreach((b, w, e) => output = sigmoid(DenseVector((0 until w.rows).map(x => sum(w(x, ::).t *:* powVector(output, e(x, ::).t))).toArray) + b))
+    (biases, weights, exponents).zipped.foreach((b, w, e) => output = sigmoid(DenseVector((0 until w.rows).map(x => sum(w(x, ::).t *:* powVectorVector(output, e(x, ::).t))).toArray) + b))
     assert(output.length == sizes(layers))
     output
   }
@@ -55,7 +49,7 @@ class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batc
     * @param mini_batch
     * @param eta
     */
-  def update_mini_batch(mini_batch: Seq[(DenseVector[Double], DenseVector[Double])], eta: Double) = {
+  def updateMiniBatch(mini_batch: Seq[(DenseVector[Double], DenseVector[Double])], eta: Double) = {
     var nable_b = biases.map(x => DenseVector.zeros[Double](x.length))
     var nable_w = weights.map(x => DenseMatrix.zeros[Double](x.rows, x.cols))
     var nable_e = exponents.map(x => DenseMatrix.zeros[Double](x.rows, x.cols))
@@ -85,14 +79,14 @@ class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batc
     var activations: Seq[DenseVector[Double]] = Seq(activation)
     var zs: Seq[DenseVector[Double]] = Seq.empty
     (biases, weights, exponents).zipped.foreach((b, w, e) => {
-      val z = DenseVector((0 until w.rows).map(x => sum(w(x, ::).t *:* powVector(activation, e(x, ::).t))).toArray) + b
+      val z = DenseVector((0 until w.rows).map(x => sum(w(x, ::).t *:* powVectorVector(activation, e(x, ::).t))).toArray) + b
       zs = zs :+ z
       activation = sigmoid(z)
       activations = activations :+ activation
     })
 
     //backward pass
-    var delta = cost_derivative(activations(layers), y) * sigmoid_prime(zs(layers - 1))
+    var delta = costDerivative(activations(layers), y) * sigmoid_prime(zs(layers - 1))
     nable_b = nable_b.updated(layers - 1, delta)
     nable_w = nable_w.updated(layers - 1, errorWrtWeight(activations(layers - 1), exponents(layers - 1), delta))
     nable_e = nable_e.updated(layers - 1, errorWrtExponent(activations(layers - 1), weights(layers - 1), exponents(layers - 1), delta))
@@ -122,7 +116,7 @@ class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batc
     * @return
     */
   private def calculateDelta(activations: Seq[DenseVector[Double]], delta: DenseVector[Double], l: Int, w: DenseMatrix[Double], e: DenseMatrix[Double], x: Int) = {
-    sum(w(::, x) *:* delta *:* e(::, x) *:* pow2(activations(layers - l + 1)(x), e(::, x) - 1.0))
+    sum(w(::, x) *:* delta *:* e(::, x) *:* powNumVector(activations(layers - l + 1)(x), e(::, x) - 1.0))
   }
 
   /**
@@ -158,14 +152,4 @@ class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batc
       case (i, j) => delta(i) * originalWeights(i, j) * pow(activationOutput(j), originalExponents(i, j)) * lan(activationOutput(j))
     }
   }
-
-  /**
-    *
-    * @param cs
-    * @param es
-    */
-  def printWeights(cs: Seq[DenseMatrix[Double]], es: Seq[DenseMatrix[Double]]) = {
-    cs.zipWithIndex.foreach(ma => ma._1.foreachPair((i, v) => log(s"Layer: ${ma._2 + 1} $v x^${es(ma._2)(i._1, i._2)} ")))
-  }
-
 }

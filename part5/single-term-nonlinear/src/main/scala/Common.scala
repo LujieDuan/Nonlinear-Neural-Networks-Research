@@ -59,12 +59,32 @@ object Common {
   }
 
   /**
+    * Returns the por power of num
+    * @param num
+    * @param por
+    * @return
+    */
+  def powVectorVector(num: DenseVector[Double], por: DenseVector[Double]): DenseVector[Double] = {
+    por.mapPairs((i, p) => pow(num(i),p))
+  }
+
+  /**
+    * Returns the por power of num
+    * @param num
+    * @param por
+    * @return
+    */
+  def powNumVector(num: Double, por: DenseVector[Double]): DenseVector[Double] = {
+    por.mapValues(p => pow(num,p))
+  }
+
+  /**
     * Cost derivate of sigmoid function
     * @param output_activation
     * @param y
     * @return
     */
-  def cost_derivative(output_activation: DenseVector[Double], y: DenseVector[Double]): DenseVector[Double] = {
+  def costDerivative(output_activation: DenseVector[Double], y: DenseVector[Double]): DenseVector[Double] = {
     output_activation - y
   }
 

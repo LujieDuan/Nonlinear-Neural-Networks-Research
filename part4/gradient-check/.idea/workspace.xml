@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f42cdf1-7612-48cf-a83b-187be0534bf1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/libraries/SBT__org_scala_lang_scala_library_2_12_3_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/modules/single-term-nonlinear-build.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/modules/single-term-nonlinear.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/sbt.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/scala_compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../README.md" afterPath="$PROJECT_DIR$/../../README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part3/nonlinear-network/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part3/nonlinear-network/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part5/single-term-nonlinear/src/main/scala/Common.scala" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/src/main/scala/Common.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part5/single-term-nonlinear/src/main/scala/Main.scala" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/src/main/scala/Main.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part5/single-term-nonlinear/src/main/scala/SingleTermNN.scala" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/src/main/scala/SingleTermNN.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -88,8 +82,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2575" />
-    <option name="y" value="-81" />
+    <option name="x" value="2000" />
+    <option name="y" value="23" />
     <option name="width" value="1191" />
     <option name="height" value="808" />
   </component>
@@ -759,15 +753,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1504067292145</updated>
-      <workItem from="1504067293471" duration="5803000" />
+      <workItem from="1504067293471" duration="6218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5803000" />
+    <option name="totallyTimeSpent" value="6218000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2575" y="-81" width="1191" height="808" extended-state="0" />
+    <frame x="2000" y="23" width="1191" height="808" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
