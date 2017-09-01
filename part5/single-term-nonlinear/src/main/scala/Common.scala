@@ -186,7 +186,7 @@ object Common {
     for(j <- 0 until epochs) {
 
       //Switch the next two lines to random shuffle the dataset before each iteration/epoch
-      //mini_batches = scala.util.Random.shuffle(dataset._1).grouped(mini_batch_size)
+      //mini_batches = scala.util.Random.shuffle(dataset.Train).grouped(mini_batch_size)
       mini_batches = dataset.Train.grouped(mini_batch_size)
 
       mini_batches.foreach(x => updateFunc(x, eta))

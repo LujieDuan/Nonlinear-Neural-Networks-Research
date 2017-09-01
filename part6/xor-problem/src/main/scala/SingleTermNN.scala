@@ -1,3 +1,4 @@
+import Common._
 import breeze.linalg.{DenseMatrix, DenseVector, sum}
 import breeze.stats.distributions.Rand
 
@@ -15,6 +16,10 @@ class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batc
   var layers: Int = 0
 
   def start(): Unit = {
+    // Include the following three lines and comment out the next two to read initial parameters from saved file
+    //    val hp = ParameterLoader.loadSingleTerm(sizes)
+    //    biases = hp._1
+    //    weights = hp._2
     biases = sizes.drop(1).map(x => DenseVector.rand(x, rand = Rand.gaussian))
     weights = sizes.drop(1).zipWithIndex.map(x => DenseMatrix.rand(x._1, sizes(x._2), rand = Rand.gaussian))
     exponents = sizes.drop(1).zipWithIndex.map(x => DenseMatrix.fill[Double](x._1, sizes(x._2))(1.0))
@@ -36,11 +41,11 @@ class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batc
     * @param input
     * @return
     */
-  def feedForward(input: DenseVector[Double]): DenseVector[Double] = {
+  def feedForward(input: DenseVector[Double]): Double = {
     var output: DenseVector[Double] = input
     (biases, weights, exponents).zipped.foreach((b, w, e) => output = sigmoid(DenseVector((0 until w.rows).map(x => sum(w(x, ::).t *:* powVectorVector(output, e(x, ::).t))).toArray) + b))
     assert(output.length == sizes(layers))
-    output
+    sum(output)
   }
 
   /**
@@ -48,7 +53,7 @@ class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batc
     * @param mini_batch
     * @param eta
     */
-  def updateMiniBatch(mini_batch: Seq[(DenseVector[Double], DenseVector[Double])], eta: Double) = {
+  def updateMiniBatch(mini_batch: Seq[(DenseVector[Double], Double)], eta: Double) = {
     var nable_b = biases.map(x => DenseVector.zeros[Double](x.length))
     var nable_w = weights.map(x => DenseMatrix.zeros[Double](x.rows, x.cols))
     var nable_e = exponents.map(x => DenseMatrix.zeros[Double](x.rows, x.cols))
@@ -69,7 +74,7 @@ class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batc
     * @param y
     * @return
     */
-  def backprop(x: DenseVector[Double], y: DenseVector[Double]):
+  def backprop(x: DenseVector[Double], y: Double):
   (Seq[DenseVector[Double]], Seq[DenseMatrix[Double]], Seq[DenseMatrix[Double]]) = {
     var nable_b = biases.map(x => DenseVector.zeros[Double](x.length))
     var nable_w = weights.map(x => DenseMatrix.zeros[Double](x.rows, x.cols))
@@ -85,7 +90,7 @@ class SingleTermNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batc
     })
 
     //backward pass
-    var delta = costDerivative(activations(layers), y) * sigmoid_prime(zs(layers - 1))
+    var delta = costDerivative(sum(activations(layers)), y) * sigmoid_prime(zs(layers - 1))
     nable_b = nable_b.updated(layers - 1, delta)
     nable_w = nable_w.updated(layers - 1, errorWrtWeight(activations(layers - 1), exponents(layers - 1), delta))
     nable_e = nable_e.updated(layers - 1, errorWrtExponent(activations(layers - 1), weights(layers - 1), exponents(layers - 1), delta))

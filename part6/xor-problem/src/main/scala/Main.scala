@@ -4,11 +4,17 @@
 object Main {
 
   def main(args: Array[String]): Unit = {
+    val fourNodes = Array(2, 1, 1)
+    val fiveNodes = Array(2, 2, 1)
     val LEARNING_RATE = 3.0
-    val EPOCH = 30
+    val EPOCH = 3000
     val MINI_BATCH_SIZE = 100
-    val layer_structures = args.map(_.toInt)
-    new SingleTermNN(LEARNING_RATE, layer_structures, EPOCH, MINI_BATCH_SIZE).start()
+
+    new LinearNN(LEARNING_RATE, fiveNodes, EPOCH, MINI_BATCH_SIZE).start()
+
+    new NonlinearNN(LEARNING_RATE, fourNodes, EPOCH, MINI_BATCH_SIZE).start()
+
+    new SingleTermNN(LEARNING_RATE, fiveNodes, EPOCH, MINI_BATCH_SIZE).start()
   }
 
 }

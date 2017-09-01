@@ -19,7 +19,7 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
   def start(): Unit = {
 
     // Include the following three lines and comment out the next two to read initial parameters from saved file
-//    val hp = ParameterLoader.load(sizes)
+//    val hp = ParameterLoader.loadNonlinear(sizes)
 //    biases = hp._1
 //    weights = hp._2
     biases = sizes.drop(1).map(x => DenseVector.rand(x, rand = Rand.gaussian))
@@ -47,11 +47,11 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
     * @param input
     * @return
     */
-  private def feedForward(input: DenseVector[Double]): DenseVector[Double] = {
+  private def feedForward(input: DenseVector[Double]): Double = {
     var output :DenseVector[Double] = input
     (biases, weights).zipped.foreach((b, w) => output = sigmoid(DenseVector((0 until w.rows).map(x => sum(layerMultiply(w(x, ::).t, output))).toArray) + b))
     assert(output.length == sizes(layers))
-    output
+    sum(output)
   }
 
   /**
@@ -59,7 +59,7 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
     * @param mini_batch
     * @param eta
     */
-  private def updateMiniBatch(mini_batch: Seq[(DenseVector[Double], DenseVector[Double])], eta: Double) = {
+  private def updateMiniBatch(mini_batch: Seq[(DenseVector[Double], Double)], eta: Double) = {
     var nable_b = biases.map(x => DenseVector.zeros[Double](x.length))
     var nable_w = cloneWeights(weights)
     mini_batch.foreach(x => {
@@ -78,7 +78,7 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
     * @param y
     * @return
     */
-  private def backprop(x: DenseVector[Double], y: DenseVector[Double]):
+  private def backprop(x: DenseVector[Double], y: Double):
   (Seq[DenseVector[Double]], Seq[DenseMatrix[Seq[(Double, Double)]]]) = {
     var nable_b = biases.map(x => DenseVector.zeros[Double](x.length))
     var nable_w = cloneWeights(weights)
@@ -92,7 +92,7 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
       activations = activations :+ activation
     })
     //backward pass
-    var delta = cost_derivative(activations(layers), y) * sigmoid_prime(zs(layers - 1))
+    var delta = costDerivative(sum(activations(layers)), y) * sigmoid_prime(zs(layers - 1))
     nable_b = nable_b.updated(layers - 1, delta)
     nable_w = nable_w.updated(layers - 1, transposeAndMultiply(activations(layers - 1), delta, weights(layers - 1)))
 

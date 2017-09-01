@@ -6,13 +6,13 @@ import scala.collection.mutable.ArrayBuffer
   * Created by LD on 2017-07-10.
   * Common Functions and classes
   */
-class DataSet(train: Seq[(DenseVector[Double], DenseVector[Double])],
-              validation: Seq[(DenseVector[Double], DenseVector[Double])],
-              test: Seq[(DenseVector[Double], DenseVector[Double])]) {
+class DataSet(train: Seq[(DenseVector[Double], Double)],
+              validation: Seq[(DenseVector[Double], Double)],
+              test: Seq[(DenseVector[Double], Double)]) {
 
-                val Train: Seq[(DenseVector[Double], DenseVector[Double])] = train
-                val Validation: Seq[(DenseVector[Double], DenseVector[Double])] = validation
-                val Test: Seq[(DenseVector[Double], DenseVector[Double])] = test
+                val Train: Seq[(DenseVector[Double], Double)] = train
+                val Validation: Seq[(DenseVector[Double], Double)] = validation
+                val Test: Seq[(DenseVector[Double], Double)] = test
               }
 
 class CostSet(train: ArrayBuffer[(Long, Double)],
@@ -84,7 +84,7 @@ object Common {
     * @param y
     * @return
     */
-  def costDerivative(output_activation: DenseVector[Double], y: DenseVector[Double]): DenseVector[Double] = {
+  def costDerivative(output_activation: Double, y: Double): Double = {
     output_activation - y
   }
 
@@ -111,8 +111,8 @@ object Common {
     * @param results
     * @return
     */
-  def computeLoss(results: Seq[(DenseVector[Double], DenseVector[Double])]): Double = {
-    val costs = results.map(x => sum((x._2 - x._1).map(y => math.pow(y, 2))))
+  def computeLoss(results: Seq[(Double, Double)]): Double = {
+    val costs = results.map(x => math.pow(x._2 - x._1, 2))
     costs.foldLeft(0.0)(_ + _)
   }
 
@@ -123,11 +123,10 @@ object Common {
     * @param startTime
     * @return
     */
-  def evaluate(test_data: Seq[(DenseVector[Double], DenseVector[Double])], forwardFunc: (DenseVector[Double]) => DenseVector[Double], startTime: Long): (Int, (Long, Double)) = {
+  def evaluate(test_data: Seq[(DenseVector[Double], Double)], forwardFunc: (DenseVector[Double]) => Double, startTime: Long): (Int, (Long, Double)) = {
     val test_result_vector = test_data.map(x => (forwardFunc(x._1), x._2))
     val cost = (System.currentTimeMillis() - startTime, computeLoss(test_result_vector))
-    val test_result = test_result_vector.map(x => (argmax(x._1), argmax(x._2)))
-    (test_result.toArray.count(x => x._1 == x._2), cost)
+    (test_result_vector.toArray.count(x => math.abs(x._1 - x._2) < 0.15), cost)
   }
 
   /**
@@ -139,7 +138,7 @@ object Common {
     * @param forwardFunc
     */
   def evaluteSets(dataset: DataSet, costs: CostSet,
-                  epochCount: Int, startTime: Long, forwardFunc: (DenseVector[Double]) => DenseVector[Double]) = {
+                  epochCount: Int, startTime: Long, forwardFunc: (DenseVector[Double]) => Double) = {
     val trainResults = evaluate(dataset.Train, forwardFunc, startTime)
     val validationResults = evaluate(dataset.Validation, forwardFunc, startTime)
     val testResults = evaluate(dataset.Test, forwardFunc, startTime)
@@ -180,14 +179,11 @@ object Common {
     */
   def SGD(dataset: DataSet, costs: CostSet,
           epochs: Int, mini_batch_size: Int, eta: Double, startTime: Long,
-          updateFunc: (Seq[(DenseVector[Double], DenseVector[Double])], Double) => Unit,
-          forwardFunc: (DenseVector[Double]) => DenseVector[Double]) = {
-    var mini_batches: Iterator[Seq[(DenseVector[Double], DenseVector[Double])]] = Iterator.empty
+          updateFunc: (Seq[(DenseVector[Double], Double)], Double) => Unit,
+          forwardFunc: (DenseVector[Double]) => Double) = {
+    var mini_batches: Iterator[Seq[(DenseVector[Double], Double)]] = Iterator.empty
     for(j <- 0 until epochs) {
-
-      //Switch the next two lines to random shuffle the dataset before each iteration/epoch
-      //mini_batches = scala.util.Random.shuffle(dataset._1).grouped(mini_batch_size)
-      mini_batches = dataset.Train.grouped(mini_batch_size)
+      mini_batches = scala.util.Random.shuffle(dataset.Train).grouped(mini_batch_size)
 
       mini_batches.foreach(x => updateFunc(x, eta))
       evaluteSets(dataset, costs, j, startTime, forwardFunc)

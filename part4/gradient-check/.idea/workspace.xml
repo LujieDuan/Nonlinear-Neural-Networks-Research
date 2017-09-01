@@ -2,10 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f42cdf1-7612-48cf-a83b-187be0534bf1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../README.md" afterPath="$PROJECT_DIR$/../../README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part6/xor-problem/input/linear/hparam2-2-1.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part6/xor-problem/input/nonlinear/hparam2-1-1.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part6/xor-problem/input/single-term/hparam2-2-1.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part2/sequential-linear/src/main/scala/Common.scala" afterPath="$PROJECT_DIR$/../../part2/sequential-linear/src/main/scala/Common.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part3/nonlinear-network/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part3/nonlinear-network/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part3/nonlinear-network/src/main/scala/Common.scala" afterPath="$PROJECT_DIR$/../../part3/nonlinear-network/src/main/scala/Common.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/Common.scala" afterPath="$PROJECT_DIR$/src/main/scala/Common.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part5/single-term-nonlinear/src/main/scala/Common.scala" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/src/main/scala/Common.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/Common.scala" afterPath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/Common.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/LinearNN.scala" afterPath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/LinearNN.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/Main.scala" afterPath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/Main.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/NonlinearNN.scala" afterPath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/NonlinearNN.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/ParameterLoader.scala" afterPath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/ParameterLoader.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/SingleTermNN.scala" afterPath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/SingleTermNN.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/XORLoader.scala" afterPath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/XORLoader.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,11 +49,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NonlinearNN.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NonlinearNN.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/NonlinearNN.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1153">
-              <caret line="82" column="3" lean-forward="false" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
+            <state relative-caret-position="-1223">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Common.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/Common.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="167" column="62" lean-forward="false" selection-start-line="167" selection-start-column="62" selection-end-line="167" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -71,6 +94,7 @@
       <list>
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/scala/NonlinearNN.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/Common.scala" />
       </list>
     </option>
   </component>
@@ -150,6 +174,32 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="scala" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gradient-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gradient-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -752,15 +802,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1504067292145</updated>
-      <workItem from="1504067293471" duration="8329000" />
+      <workItem from="1504067293471" duration="10618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8329000" />
+    <option name="totallyTimeSpent" value="10618000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2000" y="-1008" width="1191" height="808" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -827,8 +878,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/NonlinearNN.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1153">
-          <caret line="82" column="3" lean-forward="false" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
+        <state relative-caret-position="-1223">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/Common.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="167" column="62" lean-forward="false" selection-start-line="167" selection-start-column="62" selection-end-line="167" selection-end-column="62" />
           <folding />
         </state>
       </provider>
