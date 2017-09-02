@@ -11,6 +11,6 @@ object MnistLoader {
       (DenseVector(0, 1), 1.0),
       (DenseVector(1, 0), 1.0),
       (DenseVector(1, 1), 0.0))
-    new DataSet(result, Seq.empty, Seq.empty)
+    new DataSet(result)
   }
 }

@@ -6,22 +6,14 @@ import scala.collection.mutable.ArrayBuffer
   * Created by LD on 2017-07-10.
   * Common Functions and classes
   */
-class DataSet(train: Seq[(DenseVector[Double], Double)],
-              validation: Seq[(DenseVector[Double], Double)],
-              test: Seq[(DenseVector[Double], Double)]) {
+class DataSet(train: Seq[(DenseVector[Double], Double)]) {
 
                 val Train: Seq[(DenseVector[Double], Double)] = train
-                val Validation: Seq[(DenseVector[Double], Double)] = validation
-                val Test: Seq[(DenseVector[Double], Double)] = test
               }
 
-class CostSet(train: ArrayBuffer[(Long, Double)],
-              validation: ArrayBuffer[(Long, Double)],
-              test: ArrayBuffer[(Long, Double)]){
+class CostSet(train: ArrayBuffer[(Long, Double)]){
 
   val Train: ArrayBuffer[(Long, Double)] = train
-  val Validation: ArrayBuffer[(Long, Double)] = validation
-  val Test: ArrayBuffer[(Long, Double)] = test
 }
 
 
@@ -126,7 +118,7 @@ object Common {
   def evaluate(test_data: Seq[(DenseVector[Double], Double)], forwardFunc: (DenseVector[Double]) => Double, startTime: Long): (Int, (Long, Double)) = {
     val test_result_vector = test_data.map(x => (forwardFunc(x._1), x._2))
     val cost = (System.currentTimeMillis() - startTime, computeLoss(test_result_vector))
-    (test_result_vector.toArray.count(x => math.abs(x._1 - x._2) < 0.15), cost)
+    (test_result_vector.toArray.count(x => math.abs(x._1 - x._2) < 0.5), cost)
   }
 
   /**
@@ -138,18 +130,14 @@ object Common {
     * @param forwardFunc
     */
   def evaluteSets(dataset: DataSet, costs: CostSet,
-                  epochCount: Int, startTime: Long, forwardFunc: (DenseVector[Double]) => Double) = {
+                  epochCount: Int, startTime: Long, forwardFunc: (DenseVector[Double]) => Double): Boolean = {
     val trainResults = evaluate(dataset.Train, forwardFunc, startTime)
-    val validationResults = evaluate(dataset.Validation, forwardFunc, startTime)
-    val testResults = evaluate(dataset.Test, forwardFunc, startTime)
 
     costs.Train += trainResults._2
-    costs.Validation += validationResults._2
-    costs.Test += testResults._2
 
     println(s"Epoch $epochCount: Train Set: ${trainResults._1} / ${dataset.Train.length} ${ 100.0 * trainResults._1 / dataset.Train.length}%")
-    println(s"         Validation Set: ${validationResults._1} / ${dataset.Validation.length} ${ 100.0 * validationResults._1 / dataset.Validation.length}%")
-    println(s"         Test Set: ${testResults._1} / ${dataset.Test.length} ${ 100.0 * testResults._1 / dataset.Test.length}%")
+
+    trainResults._1 == dataset.Train.length
   }
 
   /**
@@ -159,11 +147,7 @@ object Common {
   def initialCosts(): CostSet = {
     val trainCosts: ArrayBuffer[(Long, Double)] = new ArrayBuffer[(Long, Double)]()
 
-    val validationCosts: ArrayBuffer[(Long, Double)] = new ArrayBuffer[(Long, Double)]()
-
-    val testCosts: ArrayBuffer[(Long, Double)] = new ArrayBuffer[(Long, Double)]()
-
-    new CostSet(trainCosts, validationCosts, testCosts)
+    new CostSet(trainCosts)
   }
 
   /**
@@ -182,11 +166,17 @@ object Common {
           updateFunc: (Seq[(DenseVector[Double], Double)], Double) => Unit,
           forwardFunc: (DenseVector[Double]) => Double) = {
     var mini_batches: Iterator[Seq[(DenseVector[Double], Double)]] = Iterator.empty
-    for(j <- 0 until epochs) {
+    var j = 0
+    while (j < epochs) {
       mini_batches = scala.util.Random.shuffle(dataset.Train).grouped(mini_batch_size)
 
       mini_batches.foreach(x => updateFunc(x, eta))
-      evaluteSets(dataset, costs, j, startTime, forwardFunc)
+
+      if(j % 2000 == 0)
+        if (evaluteSets(dataset, costs, j, startTime, forwardFunc))
+          j = epochs
+
+      j += 1
     }
   }
 }
