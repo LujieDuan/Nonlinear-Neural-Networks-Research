@@ -1,0 +1,26 @@
+LNMix-MNIST:784-30-10
+Batch Size: 100. Learning Rate: 3.0
+Epoch 0: Train Set:     0.7395
+         Validation Set:     0.7698333333333334
+         Test Set:     0.7445
+Epoch 1: Train Set:     0.7864074074074074
+         Validation Set:     0.8071666666666667
+         Test Set:     0.792
+Epoch 2: Train Set:     0.804962962962963
+         Validation Set:     0.8243333333333334
+         Test Set:     0.8099
+Epoch 3: Train Set:     0.8170925925925926
+         Validation Set:     0.832
+         Test Set:     0.8204
+Epoch 4: Train Set:     0.8882037037037037
+         Validation Set:     0.9116666666666666
+         Test Set:     0.8909
+Epoch 5: Train Set:     0.9010370370370371
+         Validation Set:     0.922
+         Test Set:     0.9034
+Epoch 6: Train Set:     0.9080555555555555
+         Validation Set:     0.9261666666666667
+         Test Set:     0.9095
+Epoch 7: Train Set:     0.9143148148148148
+         Validation Set:     0.9313333333333333
+         Test Set:     0.9152

@@ -1,8 +1,9 @@
-name := "mix-nets"
+name := "mixed-nets"
 
 version := "1.0"
 
 scalaVersion := "2.12.3"
+
 
 //breeze library
 libraryDependencies  ++= Seq(
