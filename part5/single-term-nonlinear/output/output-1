@@ -1,0 +1,93 @@
+Single Term Nonlinear Neural Network:784-30-10
+Batch Size: 100. Learning Rate: 3.0
+Epoch 0: Train Set: 36683 / 50000 73.366%
+         Validation Set: 7569 / 10000 75.69%
+         Test Set: 7494 / 10000 74.94%
+Epoch 1: Train Set: 42443 / 50000 84.886%
+         Validation Set: 8605 / 10000 86.05%
+         Test Set: 8545 / 10000 85.45%
+Epoch 2: Train Set: 43964 / 50000 87.928%
+         Validation Set: 8891 / 10000 88.91%
+         Test Set: 8819 / 10000 88.19%
+Epoch 3: Train Set: 44741 / 50000 89.482%
+         Validation Set: 9034 / 10000 90.34%
+         Test Set: 8950 / 10000 89.5%
+Epoch 4: Train Set: 45195 / 50000 90.39%
+         Validation Set: 9105 / 10000 91.05%
+         Test Set: 9033 / 10000 90.33%
+Epoch 5: Train Set: 45557 / 50000 91.114%
+         Validation Set: 9158 / 10000 91.58%
+         Test Set: 9084 / 10000 90.84%
+Epoch 6: Train Set: 45796 / 50000 91.592%
+         Validation Set: 9205 / 10000 92.05%
+         Test Set: 9118 / 10000 91.18%
+Epoch 7: Train Set: 46045 / 50000 92.09%
+         Validation Set: 9232 / 10000 92.32%
+         Test Set: 9144 / 10000 91.44%
+Epoch 8: Train Set: 46207 / 50000 92.414%
+         Validation Set: 9259 / 10000 92.59%
+         Test Set: 9174 / 10000 91.74%
+Epoch 9: Train Set: 46387 / 50000 92.774%
+         Validation Set: 9283 / 10000 92.83%
+         Test Set: 9204 / 10000 92.04%
+Epoch 10: Train Set: 46542 / 50000 93.084%
+         Validation Set: 9322 / 10000 93.22%
+         Test Set: 9226 / 10000 92.26%
+Epoch 11: Train Set: 46656 / 50000 93.312%
+         Validation Set: 9338 / 10000 93.38%
+         Test Set: 9241 / 10000 92.41%
+Epoch 12: Train Set: 46740 / 50000 93.48%
+         Validation Set: 9353 / 10000 93.53%
+         Test Set: 9255 / 10000 92.55%
+Epoch 13: Train Set: 46827 / 50000 93.654%
+         Validation Set: 9363 / 10000 93.63%
+         Test Set: 9264 / 10000 92.64%
+Epoch 14: Train Set: 46907 / 50000 93.814%
+         Validation Set: 9379 / 10000 93.79%
+         Test Set: 9280 / 10000 92.8%
+Epoch 15: Train Set: 46982 / 50000 93.964%
+         Validation Set: 9384 / 10000 93.84%
+         Test Set: 9289 / 10000 92.89%
+Epoch 16: Train Set: 47060 / 50000 94.12%
+         Validation Set: 9393 / 10000 93.93%
+         Test Set: 9295 / 10000 92.95%
+Epoch 17: Train Set: 47130 / 50000 94.26%
+         Validation Set: 9405 / 10000 94.05%
+         Test Set: 9306 / 10000 93.06%
+Epoch 18: Train Set: 47195 / 50000 94.39%
+         Validation Set: 9415 / 10000 94.15%
+         Test Set: 9314 / 10000 93.14%
+Epoch 19: Train Set: 47262 / 50000 94.524%
+         Validation Set: 9425 / 10000 94.25%
+         Test Set: 9319 / 10000 93.19%
+Epoch 20: Train Set: 47328 / 50000 94.656%
+         Validation Set: 9438 / 10000 94.38%
+         Test Set: 9325 / 10000 93.25%
+Epoch 21: Train Set: 47396 / 50000 94.792%
+         Validation Set: 9438 / 10000 94.38%
+         Test Set: 9333 / 10000 93.33%
+Epoch 22: Train Set: 47447 / 50000 94.894%
+         Validation Set: 9440 / 10000 94.4%
+         Test Set: 9344 / 10000 93.44%
+Epoch 23: Train Set: 47485 / 50000 94.97%
+         Validation Set: 9442 / 10000 94.42%
+         Test Set: 9352 / 10000 93.52%
+Epoch 24: Train Set: 47522 / 50000 95.044%
+         Validation Set: 9444 / 10000 94.44%
+         Test Set: 9360 / 10000 93.6%
+Epoch 25: Train Set: 47555 / 50000 95.11%
+         Validation Set: 9441 / 10000 94.41%
+         Test Set: 9366 / 10000 93.66%
+Epoch 26: Train Set: 47601 / 50000 95.202%
+         Validation Set: 9447 / 10000 94.47%
+         Test Set: 9369 / 10000 93.69%
+Epoch 27: Train Set: 47632 / 50000 95.264%
+         Validation Set: 9446 / 10000 94.46%
+         Test Set: 9373 / 10000 93.73%
+Epoch 28: Train Set: 47689 / 50000 95.378%
+         Validation Set: 9446 / 10000 94.46%
+         Test Set: 9378 / 10000 93.78%
+Epoch 29: Train Set: 47720 / 50000 95.44%
+         Validation Set: 9451 / 10000 94.51%
+         Test Set: 9390 / 10000 93.9%
+Total Time: 6150.357s
