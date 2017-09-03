@@ -1,0 +1,94 @@
+Single-Term-MNIST:64-30-100
+Batch Size: 100. Learning Rate: 3.0
+Epoch 0: Train Set:     0.01
+         Validation Set:     0.01
+         Test Set:     0.01
+Epoch 1: Train Set:     0.018333333333333333
+         Validation Set:     0.01
+         Test Set:     0.01
+Epoch 2: Train Set:     0.023333333333333334
+         Validation Set:     0.02
+         Test Set:     0.01
+Epoch 3: Train Set:     0.030833333333333334
+         Validation Set:     0.02
+         Test Set:     0.01
+Epoch 4: Train Set:     0.0325
+         Validation Set:     0.02
+         Test Set:     0.015
+Epoch 5: Train Set:     0.03166666666666667
+         Validation Set:     0.015
+         Test Set:     0.02
+Epoch 6: Train Set:     0.035
+         Validation Set:     0.02
+         Test Set:     0.025
+Epoch 7: Train Set:     0.035
+         Validation Set:     0.025
+         Test Set:     0.03
+Epoch 8: Train Set:     0.0325
+         Validation Set:     0.025
+         Test Set:     0.025
+Epoch 9: Train Set:     0.034166666666666665
+         Validation Set:     0.025
+         Test Set:     0.025
+Epoch 10: Train Set:     0.03333333333333333
+         Validation Set:     0.03
+         Test Set:     0.03
+Epoch 11: Train Set:     0.0325
+         Validation Set:     0.025
+         Test Set:     0.03
+Epoch 12: Train Set:     0.0325
+         Validation Set:     0.025
+         Test Set:     0.03
+Epoch 13: Train Set:     0.030833333333333334
+         Validation Set:     0.025
+         Test Set:     0.025
+Epoch 14: Train Set:     0.030833333333333334
+         Validation Set:     0.025
+         Test Set:     0.025
+Epoch 15: Train Set:     0.030833333333333334
+         Validation Set:     0.025
+         Test Set:     0.025
+Epoch 16: Train Set:     0.03166666666666667
+         Validation Set:     0.025
+         Test Set:     0.025
+Epoch 17: Train Set:     0.0325
+         Validation Set:     0.025
+         Test Set:     0.025
+Epoch 18: Train Set:     0.030833333333333334
+         Validation Set:     0.025
+         Test Set:     0.03
+Epoch 19: Train Set:     0.03
+         Validation Set:     0.03
+         Test Set:     0.03
+Epoch 20: Train Set:     0.03
+         Validation Set:     0.035
+         Test Set:     0.03
+Epoch 21: Train Set:     0.03
+         Validation Set:     0.03
+         Test Set:     0.03
+Epoch 22: Train Set:     0.03166666666666667
+         Validation Set:     0.03
+         Test Set:     0.03
+Epoch 23: Train Set:     0.03166666666666667
+         Validation Set:     0.03
+         Test Set:     0.03
+Epoch 24: Train Set:     0.03166666666666667
+         Validation Set:     0.03
+         Test Set:     0.03
+Epoch 25: Train Set:     0.028333333333333332
+         Validation Set:     0.03
+         Test Set:     0.03
+Epoch 26: Train Set:     0.030833333333333334
+         Validation Set:     0.03
+         Test Set:     0.03
+Epoch 27: Train Set:     0.030833333333333334
+         Validation Set:     0.03
+         Test Set:     0.03
+Epoch 28: Train Set:     0.030833333333333334
+         Validation Set:     0.03
+         Test Set:     0.03
+Epoch 29: Train Set:     0.030833333333333334
+         Validation Set:     0.03
+         Test Set:     0.03
+Final costs on train-set: 0.9894216869506558 validation-set: 0.9900404612439224 testSet-set: 0.9896889657784109
+Total Time: 125000ms
