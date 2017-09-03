@@ -2,12 +2,85 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f42cdf1-7612-48cf-a83b-187be0534bf1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/libraries/SBT__org_scala_lang_scala_library_2_12_3_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/modules/activation-functions-build.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/modules/activation-functions.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/sbt.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/scala_compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/.idea/modules/single-precision-build.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/.idea/modules/single-precision.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/.idea/sbt.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/.idea/scala_compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/.idea/modules/data-parallelism-build.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/.idea/modules/data-parallelism.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/.idea/sbt.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/.idea/scala_compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/modules/model-parallelism-build.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/modules/model-parallelism.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/sbt.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/scala_compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/.idea/modules/distbelief-build.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/.idea/modules/distbelief.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/.idea/sbt.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/.idea/scala_compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part7/leaf-counting/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part7/leaf-counting/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part7/leaf-counting/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part7/leaf-counting/.idea/modules/leaf-counting-build.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part7/leaf-counting/.idea/modules/leaf-counting.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part7/leaf-counting/.idea/sbt.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part7/leaf-counting/.idea/scala_compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part7/leaf-counting/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part7/leaf-counting/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part8/leaf-classification/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part8/leaf-classification/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part8/leaf-classification/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part8/leaf-classification/.idea/modules/leaf-classification-build.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part8/leaf-classification/.idea/modules/leaf-classification.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part8/leaf-classification/.idea/sbt.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part8/leaf-classification/.idea/scala_compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part8/leaf-classification/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part8/leaf-classification/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mix/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mix/.idea/libraries/SBT__org_scala_lang_scala_library_2_12_3_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mix/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mix/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mix/.idea/modules/mix-build.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mix/.idea/modules/mix-nets.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mix/.idea/modules/mix.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mix/.idea/sbt.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mix/.idea/scala_compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mix/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mix/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../README.md" afterPath="$PROJECT_DIR$/../../README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part3/nonlinear-network/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part3/nonlinear-network/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part5/single-term-nonlinear/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/Common.scala" afterPath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/Common.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/Main.scala" afterPath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/Main.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/XORLoader.scala" afterPath="$PROJECT_DIR$/../../part6/xor-problem/src/main/scala/XORLoader.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/scala/NonlinearNN.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1223">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -800,6 +873,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="605" y="115" width="1191" height="808" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -867,7 +941,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/NonlinearNN.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1223">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
