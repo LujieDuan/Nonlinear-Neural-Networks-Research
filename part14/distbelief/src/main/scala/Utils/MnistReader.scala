@@ -101,7 +101,7 @@ class MnistDataset(location: String, dataset: String) {
 }
 
 object MnistReader {
-  val location = Option(System.getenv("MNIST_PATH")).getOrElse("cache/mnistdata")
+  val location = Option(System.getenv("MNIST_PATH")).getOrElse("data/mnistdata")
   val locationFile = new File(location)
 
   if (!locationFile.exists)

@@ -2,31 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c58a7157-c22d-4047-bb47-9886a9056562" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/data/mnistdata/t10k-images-idx3-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/data/mnistdata/t10k-labels-idx1-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/data/mnistdata/train-images-idx3-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/data/mnistdata/train-labels-idx1-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/GeneralMultilayer.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Main.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/MnistLoader.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/Common.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/Compute.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/Control.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/InputOutput.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/MnistReader.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/NetworkBuilder.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/SimulationType.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/Types.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/Checker.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/CheckerCoordinator.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/DataShard.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/Layer.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/Master.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/ParameterShard.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/Synapse.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/.idea/modules/original-paper-code-build.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/.idea/scala_compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/src/main/scala/GeneralMultilayer.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/src/main/scala/TestSuite.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/src/main/scala/Utils/MnistReader.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/src/main/scala/actors/Master.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part14/distbelief/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part14/distbelief/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Main.scala" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Main.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/MnistReader.scala" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/MnistReader.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part3/nonlinear-network/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part3/nonlinear-network/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />

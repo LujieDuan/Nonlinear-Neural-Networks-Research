@@ -2,31 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="514711de-70b7-4733-bd7d-0fc3d9a12be7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/data/mnistdata/t10k-images-idx3-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/data/mnistdata/t10k-labels-idx1-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/data/mnistdata/train-images-idx3-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/data/mnistdata/train-labels-idx1-ubyte.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/GeneralMultilayer.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Main.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/MnistLoader.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/Common.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/Compute.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/Control.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/InputOutput.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/MnistReader.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/NetworkBuilder.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/SimulationType.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/Types.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/Checker.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/CheckerCoordinator.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/DataShard.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/Layer.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/Master.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/ParameterShard.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/actors/Synapse.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/.idea/modules/original-paper-code-build.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/.idea/scala_compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/src/main/scala/GeneralMultilayer.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/src/main/scala/TestSuite.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/src/main/scala/Utils/MnistReader.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part15/original-paper-code/src/main/scala/actors/Master.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part11/single-precision/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part11/single-precision/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part14/distbelief/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part14/distbelief/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Main.scala" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Main.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/MnistReader.scala" afterPath="$PROJECT_DIR$/../../part14/distbelief/src/main/scala/Utils/MnistReader.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -820,15 +806,15 @@
       <workItem from="1504413058154" duration="1990000" />
       <workItem from="1504423319956" duration="406000" />
       <workItem from="1504487490349" duration="2385000" />
-      <workItem from="1504505858054" duration="1008000" />
+      <workItem from="1504505858054" duration="1467000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20875000" />
+    <option name="totallyTimeSpent" value="21334000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="480" y="86" width="1440" height="808" extended-state="0" />
+    <frame x="480" y="86" width="1440" height="808" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
