@@ -75,6 +75,11 @@ Implement DistBelief with Akka actor: a combination of data parallelism and mode
 
 ##	Part 15: 
 
+Experiments translated from the original paper. 
+
+
+##	Part 16: 
+
 Using different learning ratio for coefficients and exponents on neural networks with nonlinear synapses. 
 
 
