@@ -1,37 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b25d37fc-9938-4f56-ab06-46fa0b5741bb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/mixed-nets.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sbt.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/Common.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/LinearNNFunctions.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/LinearNonlinearMixed.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/MnistLoader.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/NonlinearLinearMixed.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/NonlinearNNFunctions.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/.idea/modules/mix-build.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/.idea/modules/mix-nets.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/.idea/modules/mix.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/.idea/sbt.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/.idea/scala_compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/build.sbt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mix/project/build.properties" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part10/activation-functions/.idea/misc.xml" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part10/activation-functions/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part8/species-classification-leaf/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part8/species-classification-leaf/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b25d37fc-9938-4f56-ab06-46fa0b5741bb" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -854,12 +824,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1504420332429</updated>
-      <workItem from="1504420333700" duration="1200000" />
+      <workItem from="1504420333700" duration="1222000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1200000" />
+    <option name="totallyTimeSpent" value="1222000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="131" y="104" width="1191" height="808" extended-state="0" />

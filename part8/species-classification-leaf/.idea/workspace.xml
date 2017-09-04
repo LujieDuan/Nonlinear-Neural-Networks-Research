@@ -2,35 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4eed9f8-999d-4778-a94e-f5b475700181" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/.idea/modules/mixed-nets.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/.idea/sbt.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/src/main/scala/Common.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/src/main/scala/LinearNNFunctions.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/src/main/scala/LinearNonlinearMixed.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/src/main/scala/Main.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/src/main/scala/MnistLoader.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/src/main/scala/NonlinearLinearMixed.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/src/main/scala/NonlinearNNFunctions.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/.idea/modules/mix-build.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/.idea/modules/mix-nets.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/.idea/modules/mix.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/.idea/sbt.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/.idea/scala_compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/build.sbt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../part9/mix/project/build.properties" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part10/activation-functions/.idea/misc.xml" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/data/mnistdata/t10k-images-idx3-ubyte.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/data/mnistdata/t10k-labels-idx1-ubyte.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/data/mnistdata/train-images-idx3-ubyte.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/data/mnistdata/train-labels-idx1-ubyte.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/input/hparam784-30-10.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/src/main/scala/Common.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/src/main/scala/Main.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/src/main/scala/MnistLoader.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/src/main/scala/NonlinearNN.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part10/activation-functions/src/main/scala/ParameterLoader.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part10/activation-functions/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part3/nonlinear-network/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part3/nonlinear-network/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part9/mixed-nets/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part9/mixed-nets/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -66,9 +51,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
               <caret line="13" column="26" lean-forward="false" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-              <folding>
-                <element signature="e#1#59#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -78,9 +61,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
               <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#52#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -147,8 +128,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="503" />
-    <option name="y" value="69" />
+    <option name="x" value="610" />
+    <option name="y" value="185" />
     <option name="width" value="1191" />
     <option name="height" value="807" />
   </component>
@@ -881,15 +862,15 @@
       <option name="presentableId" value="Default" />
       <updated>1504414464985</updated>
       <workItem from="1504414467166" duration="3150000" />
-      <workItem from="1504420825652" duration="601000" />
+      <workItem from="1504420825652" duration="1032000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3751000" />
+    <option name="totallyTimeSpent" value="4182000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="503" y="69" width="1191" height="807" extended-state="0" />
+    <frame x="610" y="185" width="1191" height="807" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -950,9 +931,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="26" lean-forward="false" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <element signature="e#1#59#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -960,9 +939,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,9 +1008,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1041,9 +1016,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="26" lean-forward="false" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <element signature="e#1#59#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>

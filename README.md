@@ -73,7 +73,7 @@ Model parallelism: using Akka actor to devide one model of nonlinear netowrks an
 Implement DistBelief with Akka actor: a combination of data parallelism and model parallelism. 
 
 
-##	Part 16: 
+##	Part 15: 
 
 Using different learning ratio for coefficients and exponents on neural networks with nonlinear synapses. 
 
