@@ -2,18 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="514711de-70b7-4733-bd7d-0fc3d9a12be7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/src/main/scala/Common.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/src/main/scala/Main.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/src/main/scala/MnistLoader.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part11/single-precision/src/main/scala/NonlinearNN.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/src/main/scala/Common.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/src/main/scala/Master.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/src/main/scala/MnistLoader.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/src/main/scala/Model.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/src/main/scala/NonlinearNN.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/src/main/scala/Pack.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/src/main/scala/ParameterServer.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part10/activation-functions/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part10/activation-functions/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/data/mnistdata/t10k-images-idx3-ubyte.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/data/mnistdata/t10k-labels-idx1-ubyte.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/data/mnistdata/train-images-idx3-ubyte.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/data/mnistdata/train-labels-idx1-ubyte.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/src/main/scala/Compute.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/src/main/scala/Layer.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/src/main/scala/Master.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/src/main/scala/MnistLoader.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/src/main/scala/NonlinearNN.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/src/main/scala/Synapse.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part11/single-precision/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part11/single-precision/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part12/data-parallelism/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part12/data-parallelism/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../part13/model-parallelism/.idea/workspace.xml" />
@@ -887,12 +885,12 @@
       <workItem from="1504412118283" duration="769000" />
       <workItem from="1504413058154" duration="1990000" />
       <workItem from="1504423319956" duration="406000" />
-      <workItem from="1504487490349" duration="1275000" />
+      <workItem from="1504487490349" duration="2163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18757000" />
+    <option name="totallyTimeSpent" value="19645000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="929" y="134" width="1440" height="808" extended-state="0" />
