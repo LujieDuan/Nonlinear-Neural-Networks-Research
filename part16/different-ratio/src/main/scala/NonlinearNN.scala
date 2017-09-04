@@ -68,7 +68,7 @@ class NonlinearNN(learning_rate: Double, sizes: Seq[Int], epoch: Int, mini_batch
       nable_w = (nable_w, delta._2).zipped.map((nw, dnw) => addDelta(nw, dnw))
     })
     biases = (biases, nable_b).zipped.map((b, nb) => b - nb.map(x => x * (eta/mini_batch.length)))
-    weights = (weights, nable_w).zipped.map((w, nw) => minusDelta(w, nw.map(x => x.map(y => (y._1 * ratio * (eta/mini_batch.length), y._2 * (eta/mini_batch.length))))))
+    weights = (weights, nable_w).zipped.map((w, nw) => minusDelta(w, nw.map(x => x.map(y => (y._1 * exponent_ratio * (eta/mini_batch.length), y._2 * (eta/mini_batch.length))))))
     weights = addExponential(weights)
   }
 
