@@ -82,7 +82,3 @@ Experiments translated from the original paper.
 
 Using different learning ratio for coefficients and exponents on neural networks with nonlinear synapses. 
 
-
-##	Part 16: 
-
-An analysis of native GPU operations. 
