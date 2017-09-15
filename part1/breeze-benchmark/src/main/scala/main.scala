@@ -13,11 +13,11 @@ object main {
 //
 //    TestPow
 
-    benchMatrixMultiplication
+    benchMatrixElementwiseMultiplication
 
     benchMatrixApply
 
-    benchMatrixDot
+    benchMatrixMultiplication
   }
 
 
@@ -82,8 +82,8 @@ object main {
     println(s"Total: ${(System.currentTimeMillis() - time) / 1000.0}s")
   }
 
-  private def benchMatrixDot = {
-    println("Testing matrix dot multiplication:")
+  private def benchMatrixElementwiseMultiplication = {
+    println("Testing matrix elementwise multiplication:")
 
     val time = System.currentTimeMillis()
     val matrix = DenseMatrix.rand(1000, 1000)
